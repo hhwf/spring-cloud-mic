@@ -37,9 +37,3 @@ volumes: # 定义流水线挂载目录，用于共享数据
   - name: maven-cache
     host:
       path: /mydata/maven/cache
-
-trigger:
-  branch:
-    - stream
-  event:
-    - pull_request
