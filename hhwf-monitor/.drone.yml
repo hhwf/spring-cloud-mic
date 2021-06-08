@@ -12,9 +12,9 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         path: /app/build # 将应用打包好的Jar和执行脚本挂载出来
     commands: # 定义在Docker容器中执行的shell命令
       - mvn clean package # 应用打包命令
-      - cp /drone/src/hhwf-monitor/target/monitor-1.0-SNAPSHOT.jar /app/build/monitor.jar
-      - cp /drone/src/hhwf-monitor/target/Dockerfile /app/build/Dockerfile
-      - cp /drone/src/hhwf-monitor/target/run.sh /app/build/run.sh
+      - cp /drone/src/hhwf-monitor/target/monitor-1.0-SNAPSHOT.jar /app/build/monitor/monitor.jar
+      - cp /drone/src/hhwf-monitor/target/Dockerfile /app/build/monitor/Dockerfile
+      - cp /drone/src/hhwf-monitor/target/run.sh /app/build/monitor/run.sh
 
   - name: build-start
     image: appleboy/drone-ssh # SSH工具镜像
@@ -29,7 +29,7 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
         from_secret: ssh_port # 远程连接端口
       command_timeout: 5m # 远程执行命令超时时间
       script:
-        - cd /mydata/maven/build # 进入宿主机构建目录
+        - cd /mydata/maven/build/monitor # 进入宿主机构建目录
         - chmod +x run.sh # 更改为可执行脚本
         - ./run.sh # 运行脚本打包应用镜像并运行
 
