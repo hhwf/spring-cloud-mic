@@ -17,7 +17,7 @@ echo '----rm image----'
 # 打包编译docker镜像
 docker build -t ${group_name}/${app_name}:${app_version} .
 echo '----build image----'
-docker run -p 7100:7100 --name ${app_name} -v /etc/localtime:/etc/localtime -d ${group_name}/${app_name}:${app_version} -e TZ="Asia/Shanghai"
+docker run -p 7100:7100 --name ${app_name} --network bridge -v /etc/localtime:/etc/localtime -d ${group_name}/${app_name}:${app_version} -e TZ="Asia/Shanghai"
 #docker run -p 7100:7100 --name ${app_name} \
 ##--link mysql:db \
 ##-e 'spring.profiles.active'=${profile_active} \
