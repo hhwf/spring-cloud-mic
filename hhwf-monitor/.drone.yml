@@ -19,12 +19,15 @@ steps: # 定义流水线执行步骤，这些步骤将顺序执行
   - name: build-start
     image: appleboy/drone-ssh # SSH工具镜像
     settings:
-#      host: 192.168.5.78 # 远程连接地址
-#      username: root # 远程连接账号
-#      password:
-#        from_secret: ssh_password # 从Secret中读取SSH密码
-#      port: 22 # 远程连接端口
-#      command_timeout: 5m # 远程执行命令超时时间
+      host:
+         from_secret : ssh_host # 远程连接地址
+      username:
+        from_secret : ssh_username # 远程连接地址
+      password:
+        from_secret: ssh_password # 从Secret中读取SSH密码
+      port:
+        from_secret: ssh_port # 远程连接端口
+      command_timeout: 5m # 远程执行命令超时时间
       script:
         - cd /mydata/maven/build # 进入宿主机构建目录
         - chmod +x run.sh # 更改为可执行脚本
