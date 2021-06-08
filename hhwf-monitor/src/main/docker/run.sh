@@ -20,8 +20,8 @@ echo '----build image----'
 docker run -p 7100:7100 --name ${app_name} \
 #--link mysql:db \
 #-e 'spring.profiles.active'=${profile_active} \
-#-v /etc/localtime:/etc/localtime \
+-v /etc/localtime:/etc/localtime \
 #-v /mydata/app/${app_name}/logs:/var/logs \
-#-d ${group_name}/${app_name}:${app_version}\
+-d ${group_name}/${app_name}:${app_version}\
 -e TZ="Asia/Shanghai"
 echo '----start container----'
