@@ -2,7 +2,7 @@
 # 定义应用组名
 group_name='hhwf-cloud'
 # 定义应用名称
-app_name= $1
+app_name= '$1'
 # 定义应用版本
 app_version='1.0-SNAPSHOT'
 # 定义应用环境
