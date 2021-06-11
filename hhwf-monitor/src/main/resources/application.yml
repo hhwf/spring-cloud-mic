@@ -1,0 +1,19 @@
+server:
+  port: 7100
+
+spring:
+  application:
+    name: monitor
+
+  security:
+    user:
+      name: hhwf
+      password: hhwf
+  cloud:
+    nacos:
+      discovery:
+        server-addr: http://nacos.hhwf.store:8848
+        namespace: 4da376e0-4bf5-477b-a9eb-1f41c3d58b95
+        access-key: hhwf
+        secret-key: hhwf1990
+
