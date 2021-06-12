@@ -4,16 +4,30 @@ server:
 spring:
   application:
     name: monitor
-
+  boot:
+    admin:
+      ui:
+        # 修改网页显示的tab标题
+        title: "应用监控管理"
+        # 修改网页的brand的图标和标题
+        brand: "<img src='assets/img/icon-spring-boot-admin.svg'><span>应用监控管理</span>"
   security:
     user:
       name: hhwf
       password: hhwf
-  cloud:
-    nacos:
-      discovery:
-        server-addr: http://nacos.hhwf.store:8848
-        namespace: 4da376e0-4bf5-477b-a9eb-1f41c3d58b95
-        access-key: hhwf
-        secret-key: hhwf1990
 
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: http://nacos.hhwf.store:8848
+#        namespace: 4da376e0-4bf5-477b-a9eb-1f41c3d58b95
+#        access-key: hhwf
+#        secret-key: hhwf1990
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
