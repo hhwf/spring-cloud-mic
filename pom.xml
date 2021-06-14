@@ -22,6 +22,7 @@
 
     <modules>
         <module>hhwf-monitor</module>
+        <module>hhwf-core</module>
     </modules>
 
     <dependencyManagement>
